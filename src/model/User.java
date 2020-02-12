@@ -2,27 +2,26 @@ package model;
 
 public class User {
 	
-	public static int CEDULA_DE_CUIDADANIA = 1;
-	public static int TARJETA_DE_IDENTIDAD = 2;
-	public static int REGISTRO_CIVIL = 3;
-	public static int PASAPORTE = 4;
-	public static int CEDULA_DE_EXTRANJERIA = 5;
+	public static String ONE =  "CEDULA_DE_CUIDADANIA";
+	public static String TWO = "TARJETA_DE_IDENTIDAD";
+	public static String THREE = "REGISTRO_CIVIL";
+	public static String FOUR = "PASAPORTE";
+	public static String FIVE = "CEDULA_DE_EXTRANJERIA";
 
 	private String id;
-	private int idtype;
+	private String idtype;
 	private String firstName;
 	private String lastName;
 	private String phone;
 	private String dir;
 	
 	public User(String id, int idtype, String firstName, String lastName, String phone, String dir) {
-		super();
 		this.id = id;
-		this.idtype = idtype;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
 		this.dir = dir;
+		setIdtype(idtype);
 	}
 	public String getId() {
 		return id;
@@ -30,11 +29,20 @@ public class User {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getIdtype() {
+	public String getIdtype() {
 		return idtype;
 	}
 	public void setIdtype(int idtype) {
-		this.idtype = idtype;
+		if(idtype == 1)
+			this.idtype = ONE;
+		else if(idtype == 2)
+			this.idtype = TWO;
+		else if(idtype == 3)
+			this.idtype = THREE;
+		else if(idtype == 4)
+			this.idtype = FOUR;
+		else if(idtype == 5)
+			this.idtype = FIVE;
 	}
 	public String getFirstName() {
 		return firstName;
