@@ -15,6 +15,8 @@ public class User {
 	private String phone;
 	private String dir;
 	
+	private Turn uturn;
+	
 	public User(String id, int idtype, String firstName, String lastName, String phone, String dir) {
 		this.id = id;
 		this.firstName = firstName;
@@ -68,5 +70,13 @@ public class User {
 	public void setDir(String dir) {
 		this.dir = dir;
 	}
+	public Turn getUturn() {
+		return uturn;
+	}
+	public void setUturn(Turn uturn) {
+		this.uturn = uturn;
+	}
+	
+	
 	
 }
