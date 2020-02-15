@@ -18,6 +18,10 @@ public class Company {
 		turns.updateTurn();
 	}
 	
+	public void addUser(User u) {
+		users.add(u);
+	}
+	
 	public User searchUser(String id) throws UserNotFoundException{
 		User aux = null;
 		boolean found = false;
