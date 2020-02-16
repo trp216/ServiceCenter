@@ -20,7 +20,7 @@ class TestUser {
 		User u = new User(id,idtype,firstName,lastName,phone,dir);
 		
 		assertEquals(id, u.getId());
-		assertEquals("CEDULA_DE_CUIDADANIA", u.getIdtype());
+		assertEquals("CEDULA_DE_CIUDADANIA", u.getIdtype());
 		assertEquals(firstName, u.getFirstName());
 		assertEquals(lastName, u.getLastName());
 		assertEquals(phone, u.getPhone());

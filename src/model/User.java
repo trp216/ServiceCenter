@@ -2,7 +2,7 @@ package model;
 
 public class User {
 	
-	public static String ONE =  "CEDULA_DE_CUIDADANIA";
+	public static String ONE =  "CEDULA_DE_CIUDADANIA";
 	public static String TWO = "TARJETA_DE_IDENTIDAD";
 	public static String THREE = "REGISTRO_CIVIL";
 	public static String FOUR = "PASAPORTE";
