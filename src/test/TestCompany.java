@@ -22,6 +22,8 @@ class TestCompany {
 		c = new Company();
 		u = new User("09876",4,"Taemin","Lee","58394","random");
 		Turn t = new Turn('A',1);
+		c.addUser(u);
+		c.getTurns().add(t);
 	}
 	
 	public void setupScenary3() {
@@ -30,6 +32,12 @@ class TestCompany {
 		Turn t2 = new Turn('Z',99);
 		c.getTurns().add(t1);
 		c.getTurns().add(t2);
+	}
+	
+	public void setupScenary4() {
+		c = new Company();
+		Turn t1 = new Turn('C',99);
+		c.getTurns().add(t1);
 	}
 
 	@Test
@@ -68,10 +76,42 @@ class TestCompany {
 	
 	@Test 
 	public void testGetLastTurn() {
+		setupScenary2();
+		try {
+			assertEquals('A',c.getLastTurn().getActualLetter());
+			assertEquals(1,c.getLastTurn().getActualNumber());
+		} catch (NoTurnsException e) {
+			e.getMessage();
+		}
+		
 		setupScenary3();
 		try {
 			assertEquals('Z',c.getLastTurn().getActualLetter());
 			assertEquals(99,c.getLastTurn().getActualNumber());
+		} catch (NoTurnsException e) {
+			e.getMessage();
+		}
+	}
+	
+	@Test
+	public void testGetNextTurn() {
+		setupScenary2();
+		try {
+			assertEquals("A2",c.getNextTurn());
+		} catch (NoTurnsException e) {
+			e.getMessage();
+		}
+		
+		setupScenary4();
+		try {
+			assertEquals("D1",c.getNextTurn());
+		} catch (NoTurnsException e) {
+			e.getMessage();
+		}
+		
+		setupScenary3();
+		try {
+			assertEquals("A1",c.getNextTurn());
 		} catch (NoTurnsException e) {
 			e.getMessage();
 		}

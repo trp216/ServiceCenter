@@ -18,6 +18,7 @@ public class Company {
 		letter = new char[26];
 		number = new int[99];
 		fillNumbers();	
+		fillLetters();
 	}
 	
 	public void fillNumbers() {
@@ -66,24 +67,25 @@ public class Company {
 	
 	public String getNextTurn() throws NoTurnsException {
 		String msg = "";
-		try{if(getLastTurn().getActualNumber()==99 && getLastTurn().getActualLetter()!='Z') {
+		try{
+			if(getLastTurn().getActualNumber()==99 && getLastTurn().getActualLetter()!='Z') {
 			int i = 0;
 			boolean found = false;
-			while(i<letter.length && !found) {
-				if(letter[i]==getLastTurn().getActualLetter()) {
+			for(int j = 0;j<letter.length&&!found;j++) {
+				if(letter[j]==getLastTurn().getActualLetter()) {
 					found = true;
+					i = j;
 				}
-				else
-					i++;
 			}
-			msg = letter[i+1]+Integer.toString(number[0]);
+			msg = letter[i+1]+"1";
 		}
-		else if(getLastTurn().getActualNumber()==99 && getLastTurn().getActualLetter()=='Z') {
+		else if(getLastTurn().getActualLetter()=='Z' && getLastTurn().getActualNumber()==99) {
 			msg = letter[0]+Integer.toString(number[0]);
 		}
 		else {
 			msg = getLastTurn().getActualLetter()+Integer.toString(getLastTurn().getActualNumber()+1);
-		}}catch(NoTurnsException nt) {
+		}
+		}catch(NoTurnsException nt) {
 			msg = letter[0]+Integer.toString(number[0]);
 		}
 		return msg;
