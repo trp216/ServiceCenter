@@ -76,7 +76,10 @@ public class User {
 	public void setUturn(Turn uturn) {
 		this.uturn = uturn;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", idtype=" + idtype + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", phone=" + phone + ", dir=" + dir + ", uturn=" + uturn + "]";
+	}
 	
 }
