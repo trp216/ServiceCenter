@@ -102,5 +102,38 @@ public class Company {
 		turns.add(t);
 		searchUser(id).setUturn(t);
 	}
+
+	public ArrayList<Turn> getTurns() {
+		return turns;
+	}
+
+	public void setTurns(ArrayList<Turn> turns) {
+		this.turns = turns;
+	}
+
+	public ArrayList<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(ArrayList<User> users) {
+		this.users = users;
+	}
+
+	public char[] getLetter() {
+		return letter;
+	}
+
+	public void setLetter(char[] letter) {
+		this.letter = letter;
+	}
+
+	public int[] getNumber() {
+		return number;
+	}
+
+	public void setNumber(int[] number) {
+		this.number = number;
+	}
+	
 	
 }
