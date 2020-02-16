@@ -54,7 +54,7 @@ public class Company {
 		
 		int i=0;
 		if(turns.get(i)!=null) {
-			while(turns.get(i+1)!=null) {
+			while((i+1)!=turns.size()) {
 				i++;
 			}
 		}

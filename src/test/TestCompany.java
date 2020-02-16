@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import exceptions.NoTurnsException;
 import model.Company;
+import model.Turn;
 import model.User;
 
 class TestCompany {
@@ -19,6 +21,15 @@ class TestCompany {
 	public void setupScenary2() {
 		c = new Company();
 		u = new User("09876",4,"Taemin","Lee","58394","random");
+		Turn t = new Turn('A',1);
+	}
+	
+	public void setupScenary3() {
+		c = new Company();
+		Turn t1 = new Turn('A',1);
+		Turn t2 = new Turn('Z',99);
+		c.getTurns().add(t1);
+		c.getTurns().add(t2);
 	}
 
 	@Test
@@ -53,5 +64,16 @@ class TestCompany {
 		assertEquals("Kang", c.getUsers().get(c.getUsers().size()-1).getLastName());
 		assertEquals("333333", c.getUsers().get(c.getUsers().size()-1).getPhone());
 		assertEquals("random", c.getUsers().get(c.getUsers().size()-1).getDir());
+	}
+	
+	@Test 
+	public void testGetLastTurn() {
+		setupScenary3();
+		try {
+			assertEquals('Z',c.getLastTurn().getActualLetter());
+			assertEquals(99,c.getLastTurn().getActualNumber());
+		} catch (NoTurnsException e) {
+			e.getMessage();
+		}
 	}
 }
